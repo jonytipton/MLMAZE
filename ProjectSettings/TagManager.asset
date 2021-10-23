@@ -30,6 +30,8 @@ TagManager:
   - purpleAgent
   - purpleGoal
   - tile
+  - boundary
+  - collectable
   layers:
   - Default
   - TransparentFX
@@ -40,7 +42,7 @@ TagManager:
   - 
   - 
   - invisible
-  - 
+  - collectable
   - 
   - 
   - 
