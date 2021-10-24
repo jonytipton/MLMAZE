@@ -31,7 +31,10 @@ TagManager:
   - purpleGoal
   - tile
   - boundary
+<<<<<<< Updated upstream
   - collectable
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -42,8 +45,13 @@ TagManager:
   - 
   - 
   - invisible
+<<<<<<< Updated upstream
   - collectable
   - 
+=======
+  - player
+  - enemy
+>>>>>>> Stashed changes
   - 
   - 
   - 

@@ -6,13 +6,14 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
+    public bool isDead = false;
 
     public float speed = 6f;
     public float turnSmoothTime = .1f;
     float turnSmoothVelocity;
 
     public Animator anim;
-
+    public GameObject enemyObject;
 
     void Update()
     {
@@ -34,14 +35,28 @@ public class ThirdPersonMovement : MonoBehaviour
         
 
         //testing animation:
-        if (direction.magnitude > 0f)
-        {    
-            anim.SetTrigger("isMoving");         
-        }
-        if (direction.magnitude <= 0f)
+        if (isDead == false)
         {
-            anim.SetTrigger("isIdle");
+            if (direction.magnitude > 0f)
+            {
+                anim.SetTrigger("isMoving");
+            }
+            if (direction.magnitude <= 0f)
+            {
+                anim.SetTrigger("isIdle");
+            }
         }
-        //
+        while (isDead == true)
+        {
+            anim.SetTrigger("isDead");
+            Debug.Log("dead");
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 10) //did it hit any enemy
+        {
+            isDead = true;            
+        }
     }
 }
