@@ -9,15 +9,15 @@ public class HitDetection : MonoBehaviour
     public GameObject collectable;
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(scoreCon.ScoreCounter);
+        Debug.Log(scoreCon.scoreCounter);
 
         if (collision.gameObject.name == "Player")
         {
             
             Debug.Log("Player Hit");
 
-            scoreCon.UpdateScore();
-            Debug.Log(scoreCon.ScoreCounter);
+            scoreCon.ScorePoint();
+            Debug.Log(scoreCon.scoreCounter);
 
             GameObject.Destroy(collectable);
         }
