@@ -7,14 +7,15 @@ public class HitDetection : MonoBehaviour
 {
     public ScoreController scoreCon;
     public GameObject collectable;
+
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(scoreCon.scoreCounter);
+        //Debug.Log(scoreCon.scoreCounter);
 
         if (collision.gameObject.name == "Player")
         {
             
-            Debug.Log("Player Hit");
+            //Debug.Log("Player Hit");
 
             scoreCon.ScorePoint();
             Debug.Log(scoreCon.scoreCounter);
@@ -26,11 +27,11 @@ public class HitDetection : MonoBehaviour
         if (collision.gameObject.tag == "collectable")
         {
             
-            Debug.Log("Tag Hit");
+          //  Debug.Log("Tag Hit");
         }
         if (collision.gameObject.layer == 9)
         {
-            Debug.Log("Layer hit");
+          //  Debug.Log("Layer hit");
         }
     }
 }
