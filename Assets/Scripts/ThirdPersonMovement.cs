@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    //Handles Player Movement
-
     public CharacterController controller;
     public Transform cam;
     public bool isDead = false;
+    public GameObject body;
 
     public float speed = 6f;
     public float turnSmoothTime = .1f;
@@ -17,7 +17,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Animator anim;
     public GameObject enemyObject;
 
-    void Update() //Actual movement
+    void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -34,9 +34,12 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
         }
 
-        
+        if (body.transform.position.y >= 49f)
+        {
+            SceneManager.LoadScene("Title");
+        }
 
-        //Animates Player
+        //testing animation:
         if (isDead == false)
         {
             if (direction.magnitude > 0f)
@@ -47,7 +50,7 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 anim.SetTrigger("isIdle");
             }
-        } // The death animation doesn't really work...
+        }
         while (isDead == true)
         {
             anim.SetTrigger("isDead");
@@ -58,7 +61,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == 10) //did it hit any enemy
         {
-            isDead = true;            
+            isDead = true;
         }
     }
 }
