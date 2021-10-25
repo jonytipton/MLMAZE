@@ -61,7 +61,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == 10) //did it hit any enemy
         {
-            isDead = true;
+            isDead = true;            
         }
     }
 }

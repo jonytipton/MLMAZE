@@ -10,12 +10,12 @@ public class HitDetection : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //Script is attached to Pickups to see if th player bumps into it.
+        //Debug.Log(scoreCon.scoreCounter);
 
         if (collision.gameObject.name == "Player")
         {
             
-            //If they hit the pickup, their score goes up and the pickup deletes itself.
+            //Debug.Log("Player Hit");
 
             scoreCon.ScorePoint();
             Debug.Log(scoreCon.scoreCounter);
@@ -23,14 +23,15 @@ public class HitDetection : MonoBehaviour
             GameObject.Destroy(collectable);
         }
 
-        //Testing different forms of collision
+        
         if (collision.gameObject.tag == "collectable")
         {
             
+          //  Debug.Log("Tag Hit");
         }
         if (collision.gameObject.layer == 9)
         {
-          
+          //  Debug.Log("Layer hit");
         }
     }
 }

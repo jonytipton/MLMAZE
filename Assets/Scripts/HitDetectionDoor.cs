@@ -10,11 +10,11 @@ public class HitDetectionDoor : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //Script is attached to the door and checks if the player bumps into it
+
         if (collision.gameObject.name == "Player")
         {
             Debug.Log("door hit");
-            //If the player has the key, they can win the game here.
+            //win the game, woot woot!
             scoreCon.hasKey = false;
             scoreCon.keyImage.SetActive(false);
         }
