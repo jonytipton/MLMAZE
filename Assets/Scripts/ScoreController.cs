@@ -14,7 +14,7 @@ public class ScoreController : MonoBehaviour
     public void Start()
     {
         scoreCounter = 0;
-        maxScore = 10;
+        maxScore = 15;
         currentScoreText.text = (scoreCounter.ToString());
         hasKey = false;
         keyImage.SetActive(false);
