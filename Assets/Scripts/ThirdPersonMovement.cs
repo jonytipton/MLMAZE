@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    //Handles Player Movement
+
     public CharacterController controller;
     public Transform cam;
     public bool isDead = false;
@@ -15,7 +17,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Animator anim;
     public GameObject enemyObject;
 
-    void Update()
+    void Update() //Actual movement
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -34,7 +36,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         
 
-        //testing animation:
+        //Animates Player
         if (isDead == false)
         {
             if (direction.magnitude > 0f)
@@ -45,7 +47,7 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 anim.SetTrigger("isIdle");
             }
-        }
+        } // The death animation doesn't really work...
         while (isDead == true)
         {
             anim.SetTrigger("isDead");
